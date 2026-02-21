@@ -1,0 +1,37 @@
+graph TB
+    subgraph clientLayer ["Client (Browser)"]
+        ReactApp["React.js + Tailwind CSS SPA"]
+    end
+
+    subgraph serverLayer ["Backend (Node.js + Express)"]
+        AuthMiddleware["Auth Middleware (JWT)"]
+        AuthRoutes["Auth Routes"]
+        TripRoutes["Trip Routes"]
+        PackingRoutes["Packing List Routes"]
+        ReminderRoutes["Reminder Routes"]
+        ProfileRoutes["Profile Routes"]
+        PackingEngine["Packing List Generator"]
+        WeatherService["Weather Service"]
+    end
+
+    subgraph dataLayer ["Data Layer"]
+        MongoDB["MongoDB (Atlas / Local)"]
+    end
+
+    subgraph externalLayer ["External"]
+        WeatherAPI["Weather API (OpenWeatherMap)"]
+    end
+
+    ReactApp -->|"HTTP (Axios)"| AuthRoutes
+    ReactApp -->|"HTTP (Axios)"| AuthMiddleware
+    AuthMiddleware --> TripRoutes
+    AuthMiddleware --> PackingRoutes
+    AuthMiddleware --> ReminderRoutes
+    AuthMiddleware --> ProfileRoutes
+    TripRoutes --> PackingEngine
+    PackingEngine --> WeatherService
+    WeatherService -->|"REST"| WeatherAPI
+    AuthRoutes --> MongoDB
+    TripRoutes --> MongoDB
+    PackingRoutes --> MongoDB
+    ProfileRoutes --> MongoDB

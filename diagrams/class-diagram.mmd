@@ -1,0 +1,79 @@
+classDiagram
+    class User {
+        +ObjectId _id
+        +String name
+        +String email
+        +String password
+        +Date createdAt
+    }
+
+    class Trip {
+        +ObjectId _id
+        +ObjectId userId
+        +String destination
+        +Date startDate
+        +Date endDate
+        +String[] activities
+        +String tripType
+        +Object weather
+        +Date createdAt
+    }
+
+    class PackingList {
+        +ObjectId _id
+        +ObjectId tripId
+        +ObjectId userId
+        +PackingItem[] items
+        +Date createdAt
+        +Date updatedAt
+    }
+
+    class PackingItem {
+        +String name
+        +String category
+        +Boolean isPacked
+        +Boolean isCustom
+    }
+
+    class AuthController {
+        +signup(req, res)
+        +login(req, res)
+        +getMe(req, res)
+    }
+
+    class TripController {
+        +createTrip(req, res)
+        +getTrips(req, res)
+        +getTripById(req, res)
+        +updateTrip(req, res)
+        +deleteTrip(req, res)
+    }
+
+    class PackingController {
+        +getPackingList(req, res)
+        +addItem(req, res)
+        +updateItem(req, res)
+        +deleteItem(req, res)
+    }
+
+    class WeatherService {
+        +getWeather(destination) Object
+    }
+
+    class PackingGenerator {
+        +generateList(weather, activities, duration, tripType) PackingItem[]
+    }
+
+    class AuthMiddleware {
+        +protect(req, res, next)
+    }
+
+    User "1" --> "*" Trip : creates
+    Trip "1" --> "1" PackingList : has
+    PackingList "1" --> "*" PackingItem : contains
+    TripController --> WeatherService : uses
+    TripController --> PackingGenerator : uses
+    AuthController --> User : manages
+    TripController --> Trip : manages
+    PackingController --> PackingList : manages
+    AuthMiddleware --> User : validates
