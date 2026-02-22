@@ -42,9 +42,8 @@ const packingListSchema = new mongoose.Schema({
   },
 });
 
-packingListSchema.pre('save', function (next) {
+packingListSchema.pre('save', function () {
   this.updatedAt = Date.now();
-  next();
 });
 
 module.exports = mongoose.model('PackingList', packingListSchema);
