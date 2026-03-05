@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import CreateTrip from './pages/CreateTrip';
 import TripDetails from './pages/TripDetails';
 import PackingList from './pages/PackingList';
+import Weather from './pages/Weather';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/weather" element={<Weather />} />
       <Route
         path="/dashboard"
         element={

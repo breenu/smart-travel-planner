@@ -37,7 +37,7 @@ function WeatherIcon() {
 const navItems = [
   { to: '/', icon: HomeIcon, label: 'Home' },
   { to: '/dashboard', icon: ListIcon, label: 'Lists' },
-  { to: '/create-trip', icon: ConverterIcon, label: 'Converter' },
+  { to: '/create-trip', icon: ConverterIcon, label: 'New Trip' },
   { to: '/weather', icon: WeatherIcon, label: 'Weather' },
 ];
 
