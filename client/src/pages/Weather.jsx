@@ -44,7 +44,7 @@ export default function Weather() {
           Weather
         </h1>
         <p className="text-brown/60 text-sm mb-8">
-          Look up current weather at your travel destination.
+          Look up current weather at your travel destination. Enter a specific city name for accurate results.
         </p>
 
         {/* Search */}
@@ -53,7 +53,7 @@ export default function Weather() {
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            placeholder="Enter a city, e.g. Paris"
+            placeholder="Enter a city name, e.g. Mumbai, Delhi, Paris"
             className="flex-1 px-4 py-3 rounded-lg border border-brown/20 bg-white text-brown placeholder-brown/40 focus:outline-none focus:border-orange transition-colors"
           />
           <button

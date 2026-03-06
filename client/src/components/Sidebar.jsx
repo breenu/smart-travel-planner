@@ -17,10 +17,10 @@ function ListIcon() {
   );
 }
 
-function ConverterIcon() {
+function NewTripIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.9105 10.7498C20.8258 10.186 19.3678 9.78046 17.7627 9.58977V8.90698C17.7627 7.77953 16.8291 6.75814 15.1314 6.02977C13.5876 5.36558 11.5449 5 9.38136 5C7.2178 5 5.17508 5.36558 3.63136 6.02977C1.93364 6.75814 1 7.77953 1 8.90698V12.6279C1 13.7553 1.93364 14.7767 3.63136 15.5051C4.65369 15.9442 5.89335 16.2493 7.23729 16.4102V17.093C7.23729 18.2205 8.17093 19.2419 9.86864 19.9702C11.4124 20.6344 13.4551 21 15.6186 21C17.7822 21 19.8249 20.6344 21.3686 19.9702C23.0634 19.2419 24 18.2205 24 17.093V13.3721C24 12.3814 23.2583 11.4502 21.9105 10.7498Z" fill="#FFF2DA"/>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 11h-3.5v3.5c0 .55-.45 1-1 1s-1-.45-1-1V13H7.5c-.55 0-1-.45-1-1s.45-1 1-1H11V7.5c0-.55.45-1 1-1s1 .45 1 1V11h3.5c.55 0 1 .45 1 1s-.45 1-1 1z" fill="#FFF2DA"/>
     </svg>
   );
 }
@@ -37,7 +37,7 @@ function WeatherIcon() {
 const navItems = [
   { to: '/', icon: HomeIcon, label: 'Home' },
   { to: '/dashboard', icon: ListIcon, label: 'Lists' },
-  { to: '/create-trip', icon: ConverterIcon, label: 'New Trip' },
+  { to: '/create-trip', icon: NewTripIcon, label: 'New Trip' },
   { to: '/weather', icon: WeatherIcon, label: 'Weather' },
 ];
 

@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Layout from '../components/Layout';
 
-const BG_IMAGE =
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80';
+const BG_IMAGE = '/hero-bg.png';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -22,12 +21,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-brown/60 via-brown/30 to-transparent" />
 
         <div className="relative z-10 flex flex-col justify-center min-h-screen px-12 md:px-20 max-w-2xl">
-          <h2 className="font-serif text-5xl md:text-6xl leading-tight text-brown mb-6">
+          <h2 className="font-sans font-medium text-5xl md:text-6xl leading-[56px] text-brown mb-6">
             Pack smart.
             <br />
             Travel light.
           </h2>
-          <p className="text-brown/80 text-base md:text-lg leading-relaxed mb-8 max-w-md">
+          <p className="text-beige/80 text-base md:text-lg font-light leading-[18px] mb-8 max-w-md">
             Custom travel packing lists based on your destination, dates, weather, and plans.
             <br />
             No more overpacking or forgetting the essentials.
