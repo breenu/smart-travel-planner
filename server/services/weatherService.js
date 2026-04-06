@@ -25,9 +25,13 @@ const getWeather = async (destination) => {
     return {
       temp: data.main.temp,
       feelsLike: data.main.feels_like,
+      tempMin: data.main.temp_min,
+      tempMax: data.main.temp_max,
       humidity: data.main.humidity,
       description: data.weather[0].description,
       icon: data.weather[0].icon,
+      windSpeed: data.wind?.speed || 0,
+      weatherMain: data.weather[0].main, // "Rain", "Snow", "Clear", "Clouds", "Thunderstorm", etc.
     };
   } catch (error) {
     console.error(`Weather fetch failed for "${destination}": ${error.message}`);

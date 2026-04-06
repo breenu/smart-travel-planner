@@ -8,6 +8,7 @@ import CreateTrip from './pages/CreateTrip';
 import TripDetails from './pages/TripDetails';
 import PackingList from './pages/PackingList';
 import Weather from './pages/Weather';
+import Profile from './pages/Profile';
 
 export default function App() {
   return (
@@ -45,6 +46,14 @@ export default function App() {
         element={
           <ProtectedRoute>
             <PackingList />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
         }
       />

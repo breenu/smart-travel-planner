@@ -17,6 +17,8 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/trips', require('./routes/tripRoutes'));
 app.use('/api/packing', require('./routes/packingRoutes'));
 app.use('/api/weather', require('./routes/weatherRoutes'));
+app.use('/api/reminders', require('./routes/reminderRoutes'));
+app.use('/api/profile', require('./routes/profileRoutes'));
 
 app.get('/', (req, res) => {
   res.json({ message: 'Smart Travel Planner API is running' });

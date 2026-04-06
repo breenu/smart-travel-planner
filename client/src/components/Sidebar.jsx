@@ -34,11 +34,20 @@ function WeatherIcon() {
   );
 }
 
+function ProfileIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#FFF2DA"/>
+    </svg>
+  );
+}
+
 const navItems = [
   { to: '/', icon: HomeIcon, label: 'Home' },
   { to: '/dashboard', icon: ListIcon, label: 'Lists' },
   { to: '/create-trip', icon: NewTripIcon, label: 'New Trip' },
   { to: '/weather', icon: WeatherIcon, label: 'Weather' },
+  { to: '/profile', icon: ProfileIcon, label: 'Profile' },
 ];
 
 export default function Sidebar() {
