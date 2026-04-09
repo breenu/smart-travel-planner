@@ -24,6 +24,12 @@ export default function Signup() {
       setError('Passwords do not match');
       return;
     }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      setError('Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, a number, and a special character.');
+      return;
+    }
     if (!agreedTerms) {
       setError('Please agree to the terms and conditions');
       return;
@@ -44,7 +50,7 @@ export default function Signup() {
   return (
     <div className="flex min-h-screen">
       {/* Left panel - form */}
-      <div className="w-full lg:w-1/2 relative flex flex-col">
+      <div className="w-full lg:w-1/3 relative flex flex-col">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${BG_IMAGE})` }}
@@ -149,7 +155,7 @@ export default function Signup() {
 
       {/* Right panel - image */}
       <div
-        className="hidden lg:block lg:w-1/2 bg-cover bg-center"
+        className="hidden lg:block lg:w-2/3 bg-cover bg-center"
         style={{ backgroundImage: `url(${BG_IMAGE})` }}
       />
     </div>

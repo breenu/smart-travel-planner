@@ -1,0 +1,26 @@
+const nodemailer = require('nodemailer');
+
+const sendEmail = async (options) => {
+  // Create a transporter
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+  });
+
+  // Define the email options
+  const mailOptions = {
+    from: `Smart Travel Planner <${process.env.EMAIL_USERNAME}>`,
+    to: options.email,
+    subject: options.subject,
+    text: options.message,
+    html: options.html,
+  };
+
+  // Actually send the email
+  await transporter.sendMail(mailOptions);
+};
+
+module.exports = sendEmail;

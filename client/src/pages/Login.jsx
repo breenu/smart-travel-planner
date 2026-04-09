@@ -35,7 +35,7 @@ export default function Login() {
   return (
     <div className="flex min-h-screen">
       {/* Left panel - form */}
-      <div className="w-full lg:w-1/2 relative flex flex-col">
+      <div className="w-full lg:w-1/3 relative flex flex-col">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${BG_IMAGE})` }}
@@ -83,9 +83,9 @@ export default function Login() {
                 required
                 className="w-full px-4 py-3 rounded-lg bg-transparent border border-beige/40 text-beige placeholder-beige/50 focus:outline-none focus:border-beige transition-colors"
               />
-              <p className="text-beige/50 text-xs text-right mt-1.5 cursor-pointer hover:text-beige/70">
+              <Link to="/forgot-password" className="block text-beige/50 text-xs text-right mt-1.5 hover:text-beige/70">
                 forgot password?
-              </p>
+              </Link>
             </div>
 
             <button
@@ -108,7 +108,7 @@ export default function Login() {
 
       {/* Right panel - image */}
       <div
-        className="hidden lg:block lg:w-1/2 bg-cover bg-center"
+        className="hidden lg:block lg:w-2/3 bg-cover bg-center"
         style={{ backgroundImage: `url(${BG_IMAGE})` }}
       />
     </div>

@@ -18,6 +18,24 @@ const ACTIVITIES = [
   'nightlife',
 ];
 
+const POPULAR_DESTINATIONS = [
+  'Paris, France',
+  'London, UK',
+  'New York City, USA',
+  'Tokyo, Japan',
+  'Rome, Italy',
+  'Sydney, Australia',
+  'Dubai, UAE',
+  'Bali, Indonesia',
+  'Barcelona, Spain',
+  'Istanbul, Turkey',
+  'Bangkok, Thailand',
+  'Kyoto, Japan',
+  'Cape Town, South Africa',
+  'Hawaii, USA',
+  'Maldives',
+];
+
 export default function CreateTrip() {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
@@ -32,6 +50,8 @@ export default function CreateTrip() {
 
   const totalSteps = 3;
   const progress = (step / totalSteps) * 100;
+
+  const isDateInvalid = startDate && endDate && new Date(endDate) < new Date(startDate);
 
   const toggleActivity = (act) => {
     setActivities((prev) =>
@@ -101,11 +121,15 @@ export default function CreateTrip() {
               </label>
               <input
                 type="text"
+                list="destinations"
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
                 placeholder="e.g. Paris, France"
                 className="w-full px-4 py-3 rounded-lg border border-brown/20 bg-white text-brown placeholder-brown/40 focus:outline-none focus:border-orange transition-colors"
               />
+              <datalist id="destinations">
+                {POPULAR_DESTINATIONS.map(city => <option key={city} value={city} />)}
+              </datalist>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
@@ -128,14 +152,21 @@ export default function CreateTrip() {
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-brown/20 bg-white text-brown focus:outline-none focus:border-orange transition-colors"
+                  className={`w-full px-4 py-3 rounded-lg border bg-white transition-colors focus:outline-none ${
+                    isDateInvalid
+                      ? 'border-red-500 text-red-700 focus:border-red-500'
+                      : 'border-brown/20 text-brown focus:border-orange'
+                  }`}
                 />
+                {isDateInvalid && (
+                  <p className="text-red-500 text-xs mt-1 font-medium">End date cannot be before start date.</p>
+                )}
               </div>
             </div>
 
             <button
               onClick={() => setStep(2)}
-              disabled={!destination || !startDate || !endDate}
+              disabled={!destination || !startDate || !endDate || isDateInvalid}
               className="px-8 py-3 bg-brown text-beige rounded-full text-sm font-medium hover:bg-brown-dark transition-colors disabled:opacity-40 mt-4"
             >
               Next
